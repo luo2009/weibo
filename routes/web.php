@@ -39,5 +39,5 @@ Route::resource('statuses',\App\Http\Controllers\StatusesController::class,['onl
 Route::get('/users/{user}/followings',[UsersController::class,'followings'])->name('users.followings');
 Route::get('/users/{user}/followers',[UsersController::class,'followers'])->name('users.followers');
 
-Route::get('/users/followers/{user}',[\App\Http\Controllers\FollowersController::class,'store'])->name('followers.store');
+Route::post('/users/followers/{user}',[\App\Http\Controllers\FollowersController::class,'store'])->name('followers.store');
 Route::delete('/users/followers/{user}',[\App\Http\Controllers\FollowersController::class,'destroy'])->name('followers.destroy');
