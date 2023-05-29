@@ -33,3 +33,5 @@ Route::get('password/reset',[\App\Http\Controllers\PasswordController::class,'sh
 Route::post('password/email',[\App\Http\Controllers\PasswordController::class,'sendResetLinkEmail'])->name('password.email');
 Route::get('password/reset/{token}',[\App\Http\Controllers\PasswordController::class,'showResetForm'])->name('password.reset');
 Route::post('password/reset',[\App\Http\Controllers\PasswordController::class,'reset'])->name('password.update');
+
+Route::resource('statuses',\App\Http\Controllers\StatusesController::class,['only'=>['store','destroy']]);
