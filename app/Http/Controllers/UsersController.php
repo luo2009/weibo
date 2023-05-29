@@ -19,6 +19,11 @@ class UsersController extends Controller
         $this->middleware('guest', [
             'only' => ['create']
         ]);
+
+        // 限流 1小时之内只能提交10次
+        $this->middleware('throttle:10,60',[
+            'only'=>['store']
+        ]);
     }
 
     public function confirmEmail($token)
